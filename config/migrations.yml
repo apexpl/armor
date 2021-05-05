@@ -1,0 +1,15 @@
+
+table_name: armor_migrations
+
+author:
+  username: mdizak
+  full_name: Matt Dizak
+  email: mdizak@apexpl.io
+
+packages:
+
+  apex/armor:
+    dir: ./migrations
+    namespace: "Apex\\Armor\\Migrations"
+
+

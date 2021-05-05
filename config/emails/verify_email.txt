@@ -1,0 +1,16 @@
+From: Apex Platform <hello@apexpl.io>
+Subject: Verify Your Account - ~domain_name~
+Content-type: text/plain
+
+
+Hi there,
+
+Thank you for registering a ~domain_name~ account.  To verify your registration and e-mail address, please click the below link:
+
+    https://~domain_name~/verify/~armor_code~
+
+Thank you,
+~domain_name~
+
+
+

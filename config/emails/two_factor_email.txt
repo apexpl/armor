@@ -1,0 +1,16 @@
+From: Apex Platform <hello@apexpl.io>
+Subject: Two Factor Authentication - ~domain_name~
+Content-type: text/plain
+
+
+Hi there,
+
+You are receiving this message because an action you initiated requires additional verification.  To continue, please click on the below link:
+
+    https://~domain_name~/2fa/~armor_code~
+
+Thank you,
+~domain_name~
+
+
+

@@ -1,0 +1,39 @@
+{
+    "name": "apex/armor", 
+    "description": "User and session management", 
+    "authors": [
+        {
+            "name": "Matt Dizak", 
+            "email": "mdizak@apexpl.io"
+        }
+    ], 
+    "homepage": "https://apexpl.io",
+    "support": {
+        "support": "https://reddit.com/r/apexpl",
+        "source": "https://github.com/apexpl/armor"
+    }, 
+    "type": "package",
+    "license": "MIT",
+    "require": {
+        "php": ">=8.0.0",
+        "maxmind-db/reader": "^1.10",
+        "symfony/string": "^5.2",
+        "brick/phonenumber": "^0.2.2",
+        "donatj/phpuseragentparser": "^1.4",
+        "nyholm/psr7-server": "^1.0", 
+        "nyholm/psr7": "^1.4", 
+        "apex/db": "~0.2",
+        "apex/container": "~0.3",
+        "apex/migrations": "~0.1",
+        "apex/mercury": "~0.1", 
+        "ext-redis": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    }, 
+    "autoload": {
+        "psr-4": { 
+            "Apex\\Armor\\": "src/" 
+        }
+    }
+}
