@@ -115,6 +115,7 @@ CREATE TABLE armor_history_reqs (
 
 CREATE TABLE armor_keys (
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, 
+    is_pending_sign BOOLEAN NOT NULL DEFAULT false, 
     uuid VARCHAR(30) NOT NULL, 
     master_id INT NOT NULL DEFAULT 0, 
     password_id INT NOT NULL DEFAULT 0, 
@@ -123,8 +124,8 @@ CREATE TABLE armor_keys (
     updated_at TIMESTAMP,
     fingerprint VARCHAR(80) NOT NULL DEFAULT '',
     iv VARCHAR(24) NOT NULL DEFAULT '', 
-    public_key TEXT NOT NULL, 
-    private_key TEXT NOT NULL, 
+    public_key TEXT, 
+    private_key TEXT, 
     certificate TEXT,  
     FOREIGN KEY (uuid) REFERENCES armor_users (uuid) ON DELETE CASCADE
 ) engine=InnoDB;

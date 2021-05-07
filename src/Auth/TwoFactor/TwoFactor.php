@@ -6,6 +6,7 @@ namespace Apex\Armor\Auth\TwoFactor;
 use Apex\Armor\Armor;
 use Apex\Armor\Auth\{AuthSession, SessionManager};
 use Apex\Armor\Auth\TwoFactor\{TwoFactorEmail, TwoFactorEmailOTP, TwoFactorPhone};
+use Apex\Armor\PGP\TwoFactorPGP;
 use Apex\Armor\Auth\Operations\{Cookie, RandomString};
 use Apex\Armor\Enums\SessionStatus;
 use Apex\Armor\Interfaces\AdapterInterface;
@@ -71,6 +72,9 @@ class TwoFactor
             $handler->init($session, $is_login);
         } elseif ($type == 'phone') { 
             $handler = Di::make(TwoFactorPhone::class);
+            $handler->init($session, $is_login);
+        } elseif ($type == 'pgp') { 
+            $handler = Di::make(TwoFactorPGP::class);
             $handler->init($session, $is_login);
         } else { 
             throw new ArmorInvalidArgumentException("Unable to process two factor request, as invalid type specified, $type");

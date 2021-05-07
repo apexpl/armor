@@ -7,6 +7,7 @@ use Apex\Armor\Armor;
 use Apex\Migrations\Migrations;
 use Apex\Migrations\Handlers\{Installer, ClassManager};
 use Apex\Container\Di;
+use Apex\Db\Interfaces\DbInterface;
 
 /**
  * Database
@@ -38,6 +39,10 @@ class Database
         // Install
         $installer = Di::make(Installer::class);
         $installer->migrateAll();
+
+        // Clear database cache
+        $db = Di::get(DbInterface::class);
+        $db->clearCache();
     }
 
 }
