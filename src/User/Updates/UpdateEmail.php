@@ -41,7 +41,7 @@ class UpdateEmail
 
         // Check for same e-mail
         if ($user->getEmail() == $new_email) { 
-            return [UpdateStatus::FAIL, null];
+            return [UpdateStatus::FAIL, false];
         }
 
         // Validate e-mail
@@ -91,6 +91,7 @@ class UpdateEmail
         // Get policy
         $policy = $this->armor->getPolicy();
         $verify_email = $policy->getVerifyEmail();
+
         $is_update = false;
 
         // Process verification

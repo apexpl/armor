@@ -23,31 +23,31 @@ class ArmorUser extends RegistrationInfo implements ArmorUserInterface
 {
 
     // Properties
-    private ?DateTime $created_at = null;
-    private ?DateTime $updated_at = null;
-    private ?DateTime $unfreeze_at = null;
-    private ?PhoneNumber $phone_obj = null;
+    protected ?DateTime $created_at = null;
+    protected ?DateTime $updated_at = null;
+    protected ?DateTime $unfreeze_at = null;
+    protected ?PhoneNumber $phone_obj = null;
 
 
     /**
      * Constructor
      */
     public function __construct(
-        private string $uuid, 
-        private string $password = '',  
-        private string $username = '', 
-        private string $email = '', 
-        private string $phone = '', 
-        private string $type = 'user', 
-        private bool $is_pending = false, 
-        private bool $is_active = true, 
-        private bool $is_frozen = false, 
-        private bool $is_deleted = false, 
-        private bool $email_verified = false, 
-        private bool $phone_verified = false, 
-        private string $two_factor_type = 'none', 
-        private string $two_factor_frequency = 'none', 
-        private ?RegistrationInfo $reginfo = null
+        protected string $uuid, 
+        protected string $password = '',  
+        protected string $username = '', 
+        protected string $email = '', 
+        protected string $phone = '', 
+        protected string $type = 'user', 
+        protected bool $is_pending = false, 
+        protected bool $is_active = true, 
+        protected bool $is_frozen = false, 
+        protected bool $is_deleted = false, 
+        protected bool $email_verified = false, 
+        protected bool $phone_verified = false, 
+        protected string $two_factor_type = 'none', 
+        protected string $two_factor_frequency = 'none', 
+        protected ?RegistrationInfo $reginfo = null
     ) {
 
         // Ensure Amor is initialized

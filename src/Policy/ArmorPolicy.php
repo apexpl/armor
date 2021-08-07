@@ -30,7 +30,7 @@ class ArmorPolicy
         private string $two_factor_frequency = 'none', 
         private string $default_two_factor_type = 'none', 
         private string $default_two_factor_frequency = 'none', 
-        private int $min_password_strength = 3,  
+        private int $min_password_strength = 2,  
         private int $min_username_length = 0, 
         private int $expire_verify_email_secs = 600, 
         private int $expire_verify_phone_secs = 600, 

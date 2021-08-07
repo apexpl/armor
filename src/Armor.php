@@ -41,10 +41,10 @@ class Armor extends Profiles
         }
 
         // Set policy
-        if ($policy !== null) { 
+        if ($policy !== null) {
             $this->policy = $policy;
         } elseif ($policy_name != '') { 
-            $manager = Di::make(PolicyManager::class);
+            $manager = new PolicyManager($this);
             $this->policy = $manager->loadPolicy($policy_name);
         }
 

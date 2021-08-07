@@ -122,7 +122,7 @@ CREATE TABLE armor_keys (
     algo VARCHAR(5) NOT NULL DEFAULT 'rsa', 
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, 
     updated_at TIMESTAMP,
-    fingerprint VARCHAR(80) NOT NULL DEFAULT '',
+    fingerprint VARCHAR(130) NOT NULL DEFAULT '',
     iv VARCHAR(24) NOT NULL DEFAULT '', 
     public_key TEXT, 
     private_key TEXT, 

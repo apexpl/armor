@@ -47,12 +47,12 @@ class Profiles
         $db = Di::get(DbInterface::class);
 
         // Validate profile
-        $validator = new Validator($this->armor);
-        $validator->validate($uuid, $password, $username, $email, $phone);
+        $validator = new Validator($this);
+        $validator->validate($uuid, $password, $username, $email, $phone, $type);
 
         // Get registration info, if needed
         if ($reginfo === null) { 
-            $reginfo = new RegistrationInfo($this->armor);
+            $reginfo = new RegistrationInfo($this);
         }
         $reginfo->prepare();
 

@@ -42,11 +42,6 @@ class BruteForcePolicy
      */
     public function getRules():array
     {
-
-        // Get from config, if we don't have any
-        if (count($this->rules) == 0) { 
-            $this->rules = Di::get('armor.default_brute_force_policy');
-        }
         return $this->rules;
     }
 

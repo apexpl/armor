@@ -102,7 +102,7 @@ class Validator
             return $this->error("Username was not specified, and is required.", $throw_error);
 
         // Check for valid username
-        } elseif (preg_match("/[\s\W]/", $username)) { 
+        } elseif (!preg_match("/^[a-zA-Z0-9_-]+$/", $username)) { 
             return $this->error("Username can not contain spaces or special characters, $username", $throw_error);
 
         // Check min length
