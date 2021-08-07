@@ -22,7 +22,7 @@
         "donatj/phpuseragentparser": "^1.4",
         "nyholm/psr7-server": "^1.0", 
         "nyholm/psr7": "^1.4", 
-        "apex/db": "~0.2",
+        "apex/db": "^0.3",
         "apex/container": "~0.3",
         "apex/migrations": "~0.1",
         "apex/mercury": "~0.1", 
