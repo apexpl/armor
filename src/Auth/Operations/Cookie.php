@@ -21,7 +21,7 @@ class Cookie
     /**
      * Set cookie
      */
-    public static function set(string $name, string $value, int $expires = 0):void
+    public static function set(string $name, string $value, int $expires = 0, ?array $options = null):void
     {
 
         // Get cookie, if needed
@@ -35,7 +35,11 @@ class Cookie
         self::$cookie[$name] = $value;
 
         // Get options
-        $options = Di::get('armor.cookie');
+        if ($options === null) {
+            $options = Di::get('armor.cookie');
+        }
+
+        // Get expiration
         if ($expires > 0) { 
             $options['expires'] = (time() + $expires);
         }

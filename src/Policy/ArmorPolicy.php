@@ -474,6 +474,27 @@ class ArmorPolicy
         return $this->brute_force_policy;
     }
 
+    /**
+     * toArray
+     */
+    public function toArray():array
+    {
+
+        $vars = [];
+        foreach ($this as $key => $value) {
+            if ($key == 'brute_force_policy') {
+                continue;
+            }
+
+            if (is_bool($value)) {
+                $value = $value === true ? 1 : 0;
+            }
+            $vars[$key] = $value;
+        }
+
+        // Return
+        return $vars;
+    }
 
 }
 
