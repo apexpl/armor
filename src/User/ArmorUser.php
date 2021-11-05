@@ -386,16 +386,17 @@ class ArmorUser extends RegistrationInfo implements ArmorUserInterface
 
         // Update e-mail
         $updater = Di::make(UpdateEmail::class);
+        $vars = $updater->update($this, $new_email, $is_verified);
         list($ver_required, $status, $updated_at) = $updater->update($this, $new_email, $is_verified);
 
         // Update properties
-        if ($ver_required !== true) { 
+        if (isset($vars[0]) && $vars[0] !== true) { 
             $this->email = strtolower($new_email);
-            $this->updated_at = $updated_at;
+            $this->updated_at = $vars[2];
         }
 
         // Return
-        return $status;
+        return $vars[1];
     }
 
     /**

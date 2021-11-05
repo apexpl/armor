@@ -123,7 +123,7 @@ class LoginHistory
         }
 
         // Return
-        return $count;
+        return (int) $count;
     }
 
     /**

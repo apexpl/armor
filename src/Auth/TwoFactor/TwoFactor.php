@@ -111,8 +111,8 @@ class TwoFactor
         Cookie::set('2fa', $password);
 
         // Serialize and encrypt request
-        $aes = Di::make(EncryptAES::class);
-        $encrypted = $aes->toPassword(serialize($request), $password);
+        //$aes = Di::make(EncryptAES::class);
+        //$encrypted = $aes->toPassword(serialize($request), $password);
 
         // Get policy
         $armor = Di::get(Armor::class);
@@ -120,7 +120,7 @@ class TwoFactor
 
         // Add to redis
         $redis = Di::get(redis::class);
-        $redis->set($redis_key, $encrypted);
+        $redis->set($redis_key, serialize($request));
         $redis->expire($redis_key, $policy->getExpireVerifyEmailSecs());
     }
 
@@ -142,9 +142,9 @@ class TwoFactor
 
         // Decrypt
         $dec = Di::make(DecryptAES::class);
-        if (!$data = $dec->fromPassword($data, $password)) { 
-            return null;
-        }
+        //if (!$data = $dec->fromPassword($data, $password)) { 
+            //return null;
+        //}
         $request = unserialize($data);
 
         // Get session
