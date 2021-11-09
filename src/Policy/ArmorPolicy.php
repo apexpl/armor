@@ -146,7 +146,7 @@ class ArmorPolicy
     {
 
         // Validate
-        if (!in_array($val, ['none', 'require', 'optional'])) { 
+        if (!in_array($val, ['none', 'require', 'after_register', 'optional'])) { 
             throw new ArmorInvalidArgumentException("Invalid value of verify phone specified.  Please check the VerifyPhone constant for supported values.");
         }
         $this->verify_phone = $val;

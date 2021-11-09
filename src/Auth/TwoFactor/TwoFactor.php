@@ -141,7 +141,7 @@ class TwoFactor
         }
 
         // Decrypt
-        $dec = Di::make(DecryptAES::class);
+        //$dec = Di::make(DecryptAES::class);
         //if (!$data = $dec->fromPassword($data, $password)) { 
             //return null;
         //}

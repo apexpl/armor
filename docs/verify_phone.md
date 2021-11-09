@@ -28,7 +28,7 @@ $armor = new Armor
 Optionally, you may define the policy settings within the container file (default ~/config/container.php) or within a saved Armor policy.  See the [Policy Manager[(policy_manager.md) page for details.
 
 
-]## Part One - Send SMS Message
+## Part One - Send SMS Message
 
 Users should be created with `$auto_login` set to true, as verification of the six digit code requires the `ArmorUser` object of the user submitting the form.  FOr example:
 
