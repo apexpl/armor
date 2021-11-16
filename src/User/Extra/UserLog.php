@@ -72,19 +72,19 @@ class UserLog
     /**
      * List all actions
      */
-    public function listAll(int $start = 0, int $limit = 0, bool $sort_desc = true):array
+    public function listAll(bool $is_deleted = false, int $start = 0, int $limit = 0, bool $sort_desc = true):array
     {
 
         // Get SQL
         $order_dir = $sort_desc === true ? 'DESC' : 'ASC';
-        $sql = "SELECT * FROM users_armor_log ORDER BY created_at $order_dir";
-        if ($limit = 0) { 
+        $sql = "SELECT armor_users_log.* FROM armor_users_log,armor_users WHERE armor_users_log.uuid = armor_users.uuid AND armor_users.is_deleted = %b ORDER BY created_at $order_dir";
+        if ($limit > 0) { 
             $sql .= ' LIMIT ' . $start . ',' . $limit;
         }
 
         // GO through log
         $log = [];
-        $rows = $this->db->query($sql);
+        $rows = $this->db->query($sql, $is_deleted);
         foreach ($rows as $row) { 
             $row['user'] = $this->armor->getUuid($row['uuid']);
             $row['created_at'] = new \DateTime($row['created_at']);

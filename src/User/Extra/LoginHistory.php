@@ -101,7 +101,32 @@ class LoginHistory
 
         // Go through rows
         $logins = [];
-        $rows = $this->db->query($sql, $uuid);
+        $rows = $this->db->query($sql);
+        foreach ($rows as $row) {
+            $row['user'] = $this->armor->getUuid($row['uuid']);
+            $logins[] = $row;
+        }
+
+        // Return
+        return $logins;
+    }
+
+    /**
+     * List type
+     */
+    public function listType(string $type = 'user', bool $is_deleted = false, int $start = 0, int $limit = 0, bool $sort_desc = true):array
+    {
+
+        // Get SQL
+        $order_dir = $sort_desc === true ? 'DESC' : 'ASC';
+        $sql = "SELECT armor_history_logins.* FROM armor_history_logins, armor_users WHERE armor_users.type = %s AND armor_history_logins.uuid = armor_users.uuid AND armor_users.is_deleted = %b ORDER BY armor_history_logins.created_at $order_dir";
+        if ($limit > 0) { 
+            $sql .= ' LIMIT ' . $start . ',' . $limit;
+        }
+
+        // Go through rows
+        $logins = [];
+        $rows = $this->db->query($sql, $type, $is_deleted);
         foreach ($rows as $row) {
             $row['user'] = $this->armor->getUuid($row['uuid']);
             $logins[] = $row;
@@ -133,7 +158,22 @@ class LoginHistory
     {
 
         // Get count
-        if (!$count = $this->db->getField("SELECT count(*) FROM auth_history_logins")) { 
+        if (!$count = $this->db->getField("SELECT count(*) FROM armor_history_logins")) { 
+            $count = 0;
+        }
+
+        // Return
+        return (int) $count;
+    }
+
+    /**
+     * Get count type
+     */
+    public function getCountType(string $type = 'user', bool $is_deleted = false):int
+    {
+
+        // Get count
+        if (!$count = $this->db->getField("SELECT count(*) FROM armor_history_logins, armor_users WHERE armor_users.type = %s AND armor_history_logins.uuid = armor_users.uuid AND armor_users.uuid = %b", $type, $is_deleted)) { 
             $count = 0;
         }
 
