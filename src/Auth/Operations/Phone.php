@@ -18,7 +18,7 @@ class Phone
 
         // Get post data, if needed
         if (count($post) == 0) { 
-            $post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING) ?? [];
+            $post = filter_input_array(INPUT_POST) ?? [];
         }
 
         // Check for phone

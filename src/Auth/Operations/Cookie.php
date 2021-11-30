@@ -26,7 +26,7 @@ class Cookie
 
         // Get cookie, if needed
         if (count(self::$cookie) == 0) { 
-            self::$cookie = filter_input_array(INPUT_COOKIE, FILTER_SANITIZE_STRING) ?? [];
+            self::$cookie = filter_input_array(INPUT_COOKIE) ?? [];
         }
 
         // Get cookie name
@@ -66,7 +66,7 @@ class Cookie
 
         // Get cookie, if needed
         if (count(self::$cookie) == 0) { 
-            self::$cookie = filter_input_array(INPUT_COOKIE, FILTER_SANITIZE_STRING) ?? [];
+            self::$cookie = filter_input_array(INPUT_COOKIE) ?? [];
         }
 
         // Get cookie name
