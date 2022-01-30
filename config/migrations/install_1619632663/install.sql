@@ -116,6 +116,7 @@ CREATE TABLE armor_history_reqs (
 CREATE TABLE armor_keys (
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, 
     is_pending_sign BOOLEAN NOT NULL DEFAULT false, 
+    is_readonly BOOLEAN NOT NULL DEFAULT false
     uuid VARCHAR(30) NOT NULL, 
     master_id INT NOT NULL DEFAULT 0, 
     password_id INT NOT NULL DEFAULT 0, 

@@ -17,10 +17,10 @@ return [
     /**
      * Database.  Change with your credentials.
      */
-    DbInterface::class => [\Apex\Db\Drivers\mySQL\mySQL::class, ['params' => [
-        'dbname' => 'mydb_name', 
-        'user' => 'myuser', 
-        'password' => 'secret_password']]
+    DbInterface::class => [\Apex\Db\Drivers\SQLite\SQLite::class, ['params' => [
+        'dbname' => '/home/boxer/devel/apexc/armor/test.db',
+        'user' => 'boxer', 
+        'password' => 'white4882']]
     ], 
 
     /**
@@ -88,7 +88,7 @@ return [
     /**
      * Reserved username list.  Entries that begin with ~ signify username can not contain that item, others are can not match that item.
      */
-    'armor.reserved_usernames' => [], 
+    'armor.reserved_usernames' => ['~admin~'], 
 
     /**
      * Adapter interface
@@ -105,19 +105,19 @@ return [
      */
     Emailer::class => [Emailer::class, ['smtp' => [
         'is_ssl' => 1, 
-        'host' => 'smtp.your-provider.com', 
+        'host' => 'smtp.gmail.com', 
         'port' => 465, 
-        'user' => 'myuser', 
-        'password' => 'secret_password']]
+        'user' => 'mdizak@apexpl.io', 
+        'password' => 'W3d0wDr1v3']]
     ], 
 
     /**
      * Nexmo API details, if using Apex Mercury package to send SMS messages.
      */
     NexmoConfig::class => [NexmoConfig::class, [
-        'api_key' => 'nexmo_api_key', 
-        'api_secret' => 'nexmo_api_secret', 
-        'sender' => 'nexmo_sender']
+        'api_key' => '23174d2f', 
+        'api_secret' => 'ROFYgvhb2Y0nlLOp', 
+        'sender' => '13433300831']
     ], 
 
     /**

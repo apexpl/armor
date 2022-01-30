@@ -15,23 +15,22 @@
     "type": "package",
     "license": "MIT",
     "require": {
-        "php": ">=8.0.0",
-        "maxmind-db/reader": "^1.10",
-        "symfony/string": "^5.2",
+        "php": ">=8.1",
+        "maxmind-db/reader": "^1.11",
+        "symfony/string": "^6.0",
         "brick/phonenumber": "^0.4",
         "donatj/phpuseragentparser": "^1.4",
         "nyholm/psr7-server": "^1.0", 
         "nyholm/psr7": "^1.4", 
-        "apex/db": "^0.3",
-        "apex/container": "~0.3",
-        "apex/migrations": "~0.1",
-        "apex/mercury": "~0.1", 
-        "ext-redis": "*",
-        "vimeo/psalm": "^4.7"
+        "apex/db": "^2.0",
+        "apex/container": "^2.0",
+        "apex/migrations": "^2.0",
+        "apex/mercury": "^2.0", 
+        "ext-redis": "*"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5",
-        "apex/signer": "^0.1.2"
+        "apex/signer": "^2.0"
     }, 
     "autoload": {
         "psr-4": { 
