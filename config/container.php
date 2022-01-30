@@ -17,10 +17,10 @@ return [
     /**
      * Database.  Change with your credentials.
      */
-    DbInterface::class => [\Apex\Db\Drivers\SQLite\SQLite::class, ['params' => [
-        'dbname' => '/home/boxer/devel/apexc/armor/test.db',
-        'user' => 'boxer', 
-        'password' => 'white4882']]
+    DbInterface::class => [\Apex\Db\Drivers\mySQL\mySQL::class, ['params' => [
+        'dbname' => 'my_database',
+        'user' => 'myuser', 
+        'password' => 'secret_password']]
     ], 
 
     /**
@@ -107,17 +107,17 @@ return [
         'is_ssl' => 1, 
         'host' => 'smtp.gmail.com', 
         'port' => 465, 
-        'user' => 'mdizak@apexpl.io', 
-        'password' => 'W3d0wDr1v3']]
+        'user' => 'you@domain.com',
+        'password' => 'secret_password'
     ], 
 
     /**
      * Nexmo API details, if using Apex Mercury package to send SMS messages.
      */
     NexmoConfig::class => [NexmoConfig::class, [
-        'api_key' => '23174d2f', 
-        'api_secret' => 'ROFYgvhb2Y0nlLOp', 
-        'sender' => '13433300831']
+        'api_key' => 'api_key', 
+        'api_secret' => 'api_secret', 
+        'sender' => 'sender']
     ], 
 
     /**
