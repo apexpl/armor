@@ -43,6 +43,9 @@ class Validator
         bool $throw_error = true
     ):bool {
 
+        // Get policy
+        $this->policy = $this->armor->getPolicy();
+
         // Check uuid
         if ($uuid != '' && !$this->checkUuid($uuid, $throw_error)) { 
             return false;
