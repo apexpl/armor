@@ -56,8 +56,8 @@ class LoginHistory
         $this->db->insert('armor_history_reqs', [
             'history_id' => $history_id, 
             'method' => ($_SERVER['REQUEST_METHOD'] ?? 'GET'), 
-            'uri' => ($_SERVER['REQUEST_URI'] ?? ''), 
-            'query_string' => ($_SERVER['QUERY_STRING'] ?? '')
+            'uri' => preg_replace("/\?.+$/", "", ($_SERVER['REQUEST_URI'] ?? '')), 
+            'query_string' => substr(($_SERVER['QUERY_STRING'] ?? ''), 0, 250)
         ]);
 
     }
