@@ -73,9 +73,9 @@ class TwoFactor
         } elseif ($type == 'phone') { 
             $handler = Di::make(TwoFactorPhone::class);
             $handler->init($session, $is_login);
-        } elseif ($type == 'pgp') { 
+        } elseif ($type == 'pgp') {
             $handler = Di::make(TwoFactorPGP::class);
-            $handler->init($session, $is_login);
+            $message = $handler->init($session, $is_login);
         } else { 
             throw new ArmorInvalidArgumentException("Unable to process two factor request, as invalid type specified, $type");
         }
