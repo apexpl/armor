@@ -23,7 +23,7 @@
         "nyholm/psr7-server": "^1.0", 
         "nyholm/psr7": "^1.4", 
         "apex/db": "^2.0",
-        "apex/container": "^2.0",
+        "apex/container": ">=2.0",
         "apex/migrations": "^2.0",
         "apex/mercury": "^2.0", 
         "ext-redis": "*"
